@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/akofink/wishlists.svg)](https://travis-ci.org/akofink/wishlists)
+[![Code Climate](https://codeclimate.com/github/akofink/wishlists.png)](https://codeclimate.com/github/akofink/wishlists)
+[![Coverage Status](https://coveralls.io/repos/akofink/wishlists/badge.png)](https://coveralls.io/r/akofink/wishlists)
 
 # akWishlists
 A Wish List Site for Gift Buying Collaboration
