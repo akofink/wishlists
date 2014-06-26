@@ -1,9 +1,15 @@
 %div.jumbotron
   %div.container.text-center
     %h1 Welcome to akWishlists!
-    %p This is a site for sharing information among families, primarily wish lists.
     %p
-      %div.col-md-12
-        = link_to "Learn more", "pages/about", role: "button", class: "btn btn-primary btn-lg"
-        %a.btn.btn-primary.btn-lg{role: "button"} Sign Up
-        %a.btn.btn-primary.btn-lg{role: "button"} Sign In
+      This is a site for sharing information among families, primarily wish lists.
+    %div.col-md-12
+      = link_to about_path, role: "button", class: "btn btn-primary btn-lg" do
+        = fa_icon 'info-circle'
+        Learn more
+      = link_to signup_path, role: "button", class: "btn btn-primary btn-lg" do
+        = fa_icon 'user'
+        Sign Up
+      = link_to login_path, role: "button", class: "btn btn-primary btn-lg" do
+        = fa_icon 'sign-in'
+        Log In

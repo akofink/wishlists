@@ -15,7 +15,7 @@ gem 'haml-rails'
 gem 'jbuilder', '>= 1.0.1'
 gem 'jquery-rails'
 gem 'jquery-ui-sass-rails'
-gem "less-rails"
+gem 'less-rails'
 gem 'pg'
 gem 'redcarpet'
 gem 'rmagick', :require => 'RMagick'
