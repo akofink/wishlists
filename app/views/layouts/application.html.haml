@@ -11,13 +11,12 @@
     = csrf_meta_tags
     = render 'shared/favicon'
   %body
-    %nav.navbar.navbar-inverse{role: 'naviagation'}
-      %div.container
-        %div.navbar-header
-          = link_to :root, class: 'navbar-brand' do
-            akWishlists
-            = fa_icon 'gift'
-        %div.collapse.navbar-collapse
-    %div.container
+    = render 'shared/navigation'
 
-      = yield
+    %div.container
+      %div.col-md-1
+
+      %div.col-md-10.container
+        = yield
+
+      %div.col-md-1

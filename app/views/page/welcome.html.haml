@@ -1,15 +1,20 @@
-%div.jumbotron
+%div.col-md-1
+
+%div.jumbotron.col-md-10
   %div.container.text-center
-    %h1 Welcome to akWishlists!
-    %p
-      This is a site for sharing information among families, primarily wish lists.
-    %div.col-md-12
-      = link_to about_path, role: "button", class: "btn btn-primary btn-lg" do
-        = fa_icon 'info-circle'
-        Learn more
-      = link_to signup_path, role: "button", class: "btn btn-primary btn-lg" do
-        = fa_icon 'user'
-        Sign Up
-      = link_to login_path, role: "button", class: "btn btn-primary btn-lg" do
-        = fa_icon 'sign-in'
-        Log In
+    %div
+      %h1 Welcome to akWishlists!
+      %p
+        This is a site for sharing information among families, primarily wish lists.
+      %div.col-md-12
+        = link_to about_path, role: "button", class: "btn btn-primary btn-lg" do
+          = fa_icon 'info-circle'
+          Learn more
+        = link_to signup_path, role: "button", class: "btn btn-primary btn-lg" do
+          = fa_icon 'user'
+          Sign Up
+        = link_to login_path, role: "button", class: "btn btn-primary btn-lg" do
+          = fa_icon 'sign-in'
+          Log In
+
+%div.col-md-1

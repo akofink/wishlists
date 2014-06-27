@@ -1,29 +1,31 @@
-%h1 Sign up
-%div.col-md-4
-  = form_for :user, class: 'form-horizontal' do |f|
-    %div.form-group
-      = f.text_field :user_name,
-        class: 'form-control',
-        placeholder: 'username'
-    %div.form-group
-      = f.email_field :email,
-        class: 'form-control',
-        placeholder: 'email'
-    %div.form-group
-      = f.text_field :first_name,
-        class: 'form-control',
-        placeholder: 'first name'
-    %div.form-group
-      = f.text_field :last_name,
-        class: 'form-control',
-        placeholder: 'last name'
-    %div.form-group
-      = f.password_field :password,
-        class: 'form-control',
-        placeholder: 'password'
-    %div.form-group
-      = f.password_field :password_confirmation,
-        class: 'form-control',
-        placeholder: 'password_confirmation'
-    %div.actions
-      = f.submit class: 'btn'
+%div.col-md-12.page-header
+  %h1 Sign up
+%div.col-md-12
+  %div.col-md-4
+    = form_for :user, class: 'form-horizontal' do |f|
+      %div.form-group
+        = f.text_field :user_name,
+          class: 'form-control',
+          placeholder: 'username'
+      %div.form-group
+        = f.email_field :email,
+          class: 'form-control',
+          placeholder: 'email'
+      %div.form-group
+        = f.text_field :first_name,
+          class: 'form-control',
+          placeholder: 'first name'
+      %div.form-group
+        = f.text_field :last_name,
+          class: 'form-control',
+          placeholder: 'last name'
+      %div.form-group
+        = f.password_field :password,
+          class: 'form-control',
+          placeholder: 'password'
+      %div.form-group
+        = f.password_field :password_confirmation,
+          class: 'form-control',
+          placeholder: 'password_confirmation'
+      %div.actions
+        = f.submit class: 'btn'

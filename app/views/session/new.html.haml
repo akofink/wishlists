@@ -1,13 +1,15 @@
-%h1 Log In
-%div.col-md-4
-  = form_for :session, class: 'form-horizontal' do |f|
-    %div.form-group
-      = f.text_field :user_name,
-        class: 'form-control',
-        placeholder: 'username'
-    %div.form-group
-      = f.password_field :password,
-        class: 'form-control',
-        placeholder: 'password'
-    %div.actions
-      = f.submit 'Log In', class: 'btn'
+%div.page-header
+  %h1 Log In
+%div.col-md-12
+  %div.col-md-4
+    = form_for :session, class: 'form-horizontal' do |f|
+      %div.form-group
+        = f.text_field :user_name,
+          class: 'form-control',
+          placeholder: 'username'
+      %div.form-group
+        = f.password_field :password,
+          class: 'form-control',
+          placeholder: 'password'
+      %div.actions
+        = f.submit 'Log In', class: 'btn'
