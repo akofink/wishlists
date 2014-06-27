@@ -305,7 +305,7 @@ DEPENDENCIES
   jquery-ui-sass-rails
   less-rails
   pg
-  rails (>= 4.1)
+  rails (>= 4.0)
   rails_12factor
   redcarpet
   rmagick
