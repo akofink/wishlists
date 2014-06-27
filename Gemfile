@@ -34,6 +34,7 @@ end
 group :production do
   # For Heroku Rails Integration
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 group :test do
