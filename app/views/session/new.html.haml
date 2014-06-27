@@ -1,2 +1,13 @@
-%h1 Session#new
-%p Find me in app/views/session/new.html.haml
+%h1 Login
+%div.col-md-4
+  = form_for :session, class: 'form-horizontal' do |f|
+    %div.form-group
+      = f.text_field :user_name,
+        class: 'form-control',
+        placeholder: 'username'
+    %div.form-group
+      = f.password_field :password,
+        class: 'form-control',
+        placeholder: 'password'
+    %div.actions
+      = f.submit 'Login', class: 'btn'
