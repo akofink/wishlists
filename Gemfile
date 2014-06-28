@@ -29,6 +29,7 @@ group :development do
   gem 'debugger'
   gem 'spring'
   gem 'thin'
+  gem 'pry-rails'
 end
 
 group :production do

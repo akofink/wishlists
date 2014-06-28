@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :families
   resources :page
+  resources :permissions
+  resources :relationships
   resources :session
+  resources :wish_item
+  resources :wish_lists
+  resources :up_votes
+  resources :upload_files
   resources :users
 
   get '/signup', to: 'users#new'

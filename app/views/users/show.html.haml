@@ -1,2 +1,20 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+%div.col-md-12.page-header
+  %h1 Account
+%div.col-md-12
+  %div.col-md-8
+    %div.lead
+      Username:
+      %strong
+        = @user.username
+    %div.lead
+      Email Address:
+      %strong
+        = @user.email
+    %div.lead
+      First Name:
+      %strong
+        = @user.first_name
+    %div.lead
+      Last Name:
+      %strong
+        = @user.last_name
