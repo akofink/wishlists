@@ -2,9 +2,9 @@
   %h1 Log In
 %div.col-md-12
   %div.col-md-4
-    = form_for :session, class: 'form-horizontal' do |f|
+    = form_for @session, class: 'form-horizontal' do |f|
       %div.form-group
-        = f.text_field :user_name,
+        = f.text_field :username,
           class: 'form-control',
           placeholder: 'username'
       %div.form-group
