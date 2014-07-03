@@ -1,11 +1,31 @@
 class User < ActiveRecord::Base
-  attr_accessor :password_confirmation
+  has_secure_password
+
+  validates :username, presence: true
+  validates :first_name, presence: true
+
+  validates :email,
+    presence: true,
+    uniqueness: true,
+    format: {
+      with: /.+@.+\..+/,
+      message: 'must be the correct format'
+    }
+
+  validates :password, unless: 'password.blank?',
+    length: {
+    minimum: 6
+  },
+    format: {
+    with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*(_|[^\w]|\d)).+\z/,
+    message: 'must meet the security requirements'
+  }
 
   def self.with_username(username)
     where(username: username).first
   end
 
   def has_password?(given_password)
-    given_password == password
+    authenticate given_password
   end
 end

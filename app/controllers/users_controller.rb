@@ -5,9 +5,10 @@ class UsersController < ApplicationController
 
   def create
     if user.save
-      redirect_to user
+      flash[:success] = "User account created with username <strong>#{user.username}</strong>"
+      redirect_to :login
     else
-      redirect_back
+      render :new
     end
   end
 
