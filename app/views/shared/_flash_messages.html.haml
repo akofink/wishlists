@@ -1,0 +1,5 @@
+- flash.each do |key, value|
+  %div.col-md-12.alert.alert-dismissable{role: 'alert', class: "alert-#{flash_key(key)}"}
+    = button_tag type: 'button', class: 'close', data: {dismiss: 'alert'} do
+      = fa_icon 'times'
+    = value

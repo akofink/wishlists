@@ -1,2 +1,19 @@
-<h1>Page#contact</h1>
-<p>Find me in app/views/page/contact.html.erb</p>
+%div.col-md-2
+
+%div.col-md-8.container
+  %div.col-md-12.page-header
+    %h1 Contact
+  %div.col-md-12
+    %address.lead
+      Andrew Kofink
+      %br
+      = link_to 'mailto:ajkofink@gmail.com' do
+        ajkofink@gmail.com
+      %br
+      = link_to 'http://akofink.com' do
+        = fa_icon 'code'
+      = link_to 'https://twitter.com/akofink' do
+        = fa_icon 'twitter'
+      = link_to 'https://github.com/akofink' do
+        = fa_icon 'github'
+%div.col-md-2

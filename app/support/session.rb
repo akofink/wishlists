@@ -9,7 +9,7 @@ class Session
   end
 
   def invalid_password?
-    login_errors unless user.has_password? password
+    login_errors unless user.try :has_password?, password
   end
 
   def user

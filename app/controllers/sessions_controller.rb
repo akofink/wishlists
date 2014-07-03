@@ -10,11 +10,12 @@ class SessionsController < ApplicationController
       update_current_user @session.user
       redirect_to current_user
     else
-      redirect_to :back
+      render :new
     end
   end
 
   def destroy
+    flash[:info] = 'Logged out'
     update_current_user_id nil
     redirect_to :root
   end
