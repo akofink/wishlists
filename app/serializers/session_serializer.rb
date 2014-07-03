@@ -1,6 +1,6 @@
 class SessionSerializer < ActiveModel::Serializer
-  attributes {
+  attributes(
     :username,
     :password
-  }
+  )
 end
