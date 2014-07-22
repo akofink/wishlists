@@ -5,3 +5,12 @@
 .field_with_errors {
   @extend .has-error;
 }
+
+.table-responsive {
+  overflow: scroll;
+  td {
+    max-width: 100px;
+    overflow: auto;
+    white-space: nowrap;
+  }
+}
