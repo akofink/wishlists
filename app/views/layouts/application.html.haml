@@ -13,12 +13,6 @@
   %body
     = render 'shared/navigation'
 
-    %div.container
-      %div.col-md-1
-
-      %div.col-md-10.container
-        = render 'shared/flash_messages'
-
-        = yield
-
-      %div.col-md-1
+    .container
+      = render 'shared/flash_messages'
+      = yield

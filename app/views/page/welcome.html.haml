@@ -1,23 +1,22 @@
-%div.col-md-1
+.col-md-2
 
-%div.jumbotron.col-md-10
-  %div.container.text-center
-    %div
-      %h1 akWishlists
-      %p
-        the easiest way to share wish lists among family and friends
-      %div.col-md-12.container
-        %div.col-md-4
-          = link_to about_path, role: "button", class: "btn btn-primary btn-lg" do
-            = fa_icon 'info-circle'
-            Learn more
-        %div.col-md-4
-          = link_to signup_path, role: "button", class: "btn btn-primary btn-lg" do
-            = fa_icon 'user'
-            Sign Up
-        %div.col-md-4
-          = link_to login_path, role: "button", class: "btn btn-primary btn-lg" do
-            = fa_icon 'sign-in'
-            Log In
+.jumbotron.col-md-8
+  .container.text-center
+    %h1 akWishlists
+    %p
+      the easiest way to share wish lists among family and friends
+    .col-md-12.container
+      .col-md-4
+        = link_to about_path, role: "button", class: "btn btn-primary btn-lg" do
+          = fa_icon 'info-circle'
+          Learn more
+      .col-md-4
+        = link_to signup_path, role: "button", class: "btn btn-primary btn-lg" do
+          = fa_icon 'user'
+          Sign Up
+      .col-md-4
+        = link_to login_path, role: "button", class: "btn btn-primary btn-lg" do
+          = fa_icon 'sign-in'
+          Log In
 
-%div.col-md-1
+.col-md-2

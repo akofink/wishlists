@@ -1,5 +1,5 @@
 - if model.errors.any?
-  %div.form_errors.alert.alert-dismissable.alert-danger{role: 'alert'}
+  .form_errors.alert.alert-dismissable.alert-danger{role: 'alert'}
     = button_tag type: 'button', class: 'close', data: {dismiss: 'alert'} do
       = fa_icon 'times'
     %ul

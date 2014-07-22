@@ -1,22 +1,18 @@
-%div.col-md-2
-%div.col-md-8
-  %div.page-header
+.col-md-3
+.col-md-6
+  .page-header
     %h1 Log In
   = form_for @session, class: 'form-horizontal' do |f|
-    %div.col-md-12
-      = render 'shared/form_errors', model: @session
+    = render 'shared/form_errors', model: @session
 
-    %div.col-md-2
-    %div.col-md-8
-      %div.form-group
-        = f.text_field :username,
-          class: 'form-control',
-          placeholder: 'username'
-      %div.form-group
-        = f.password_field :password,
-          class: 'form-control',
-          placeholder: 'password'
-      %div.actions
-        = f.submit 'Log In', class: 'btn'
-    %div.col-md-2
-%div.col-md-2
+    .form-group
+      = f.text_field :username,
+        class: 'form-control',
+        placeholder: 'username'
+    .form-group
+      = f.password_field :password,
+        class: 'form-control',
+        placeholder: 'password'
+    .actions
+      = f.submit 'Log In', class: 'btn'
+.col-md-3

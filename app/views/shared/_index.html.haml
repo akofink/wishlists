@@ -1,0 +1,15 @@
+- model = User
+.page-header
+  %h1
+    = model.to_s.pluralize
+.table-responsive
+  %table.table.table-striped.table-hover
+    %tr
+      - model.column_names.each do |column_name|
+        %th
+          = column_name
+    - model.all.each do |instance|
+      %tr
+        - model.column_names.each do |column_name|
+          %td
+            = instance.try column_name.to_sym

@@ -1,14 +1,14 @@
 %nav.navbar.navbar-inverse{role: 'naviagation'}
-  %div.container
-    %div.col-md-1
-    %div.col-md-10
-      %div.navbar-header
+  .container
+    .col-md-1
+    .col-md-10
+      .navbar-header
         = button_tag '', class: 'navbar-toggle', data: { toggle: 'collapse', target: 'nav-collapse' } do
           = fa_icon 'bars'
         = link_to :root, class: 'navbar-brand' do
           akWishlists
           = fa_icon 'gift'
-      %div.collapse.navbar-collapse
+      .collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
@@ -44,4 +44,7 @@
                   = link_to :login do
                     Log In
                     = fa_icon 'sign-in', class: 'pull-right'
-    %div.col-md-1
+                  = link_to :signup do
+                    Sign Up
+                    = fa_icon 'user', class: 'pull-right'
+    .col-md-1
