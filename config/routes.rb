@@ -1,29 +1,11 @@
 Rails.application.routes.draw do
-  get "wish_items/index"
-  get "wish_items/new"
-  get "wish_items/create"
-  get "wish_items/edit"
-  get "wish_items/update"
-  get "wish_items/destroy"
-  get "wish_item/index"
-  get "wish_item/new"
-  get "wish_item/create"
-  get "wish_item/edit"
-  get "wish_item/update"
-  get "wish_item/destroy"
-  get "wish_lists/index"
-  get "wish_lists/new"
-  get "wish_lists/create"
-  get "wish_lists/edit"
-  get "wish_lists/update"
-  get "wish_lists/destroy"
   resources :comments
   resources :families
   resources :page
   resources :permissions
   resources :relationships
   resources :sessions
-  resources :wish_item
+  resources :wish_items
   resources :wish_lists
   resources :up_votes
   resources :upload_files

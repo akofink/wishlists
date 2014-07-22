@@ -1,7 +1,6 @@
-- model = User
 .page-header
   %h1
-    = model.to_s.pluralize
+    = model.to_s.titleize.pluralize
 .table-responsive
   %table.table.table-striped.table-hover
     %tr
@@ -12,4 +11,5 @@
       %tr
         - model.column_names.each do |column_name|
           %td
-            = instance.try column_name.to_sym
+            = link_to instance do
+              = instance.try column_name.to_sym
