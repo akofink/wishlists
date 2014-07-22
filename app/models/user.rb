@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  belongs_to :family
+
+  has_many :wish_lists
+  has_many :wish_items, through: :wish_lists
+
   validates :username, presence: true
   validates :first_name, presence: true
 

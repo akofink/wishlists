@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    users
   end
 
   private
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def users
-    User.all
+    @users ||= User.order(:username)
   end
 
   def user_params
