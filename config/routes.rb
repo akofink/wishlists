@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :wish_lists
   resources :up_votes
   resources :upload_files
-  resources :users
+  resources :users do
+    resources :wish_lists
+  end
 
   get '/signup', to: 'users#new', as: 'signup'
   get '/login', to: 'sessions#new', as: 'login'

@@ -3,4 +3,6 @@ class WishList < ActiveRecord::Base
   belongs_to :family
 
   has_many :wish_items
+
+  scope :by_updated_at, -> { order :updated_at }
 end

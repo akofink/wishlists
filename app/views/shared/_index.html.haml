@@ -1,3 +1,5 @@
+- model ||= (records.first || params[:controller].classify.constantize.new).class
+- records ||= model.all
 .page-header
   %h1
     = model.to_s.titleize.pluralize
@@ -7,7 +9,7 @@
       - model.column_names.each do |column_name|
         %th
           = column_name
-    - model.all.each do |instance|
+    - records.each do |instance|
       %tr
         - model.column_names.each do |column_name|
           %td
