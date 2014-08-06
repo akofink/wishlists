@@ -14,5 +14,8 @@
     = render 'shared/navigation'
 
     .container
-      = render 'shared/flash_messages'
-      = yield
+      .col-md-1
+      .col-md-10.container
+        = render 'shared/flash_messages'
+        = yield
+      .col-md-1
