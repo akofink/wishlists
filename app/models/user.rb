@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   belongs_to :family
 
+  has_many :dashboards, foreign_key: :owner_id
   has_many :wish_lists
   has_many :wish_items, through: :wish_lists
 

@@ -1,20 +1,21 @@
-.col-md-12.page-header
-  %h1 Account
-.col-md-12
-  .col-md-8
-    .lead
-      Username:
+.panel.panel-default
+  .panel-heading
+    %h2.panel-title Account
+  .list-group
+    %li.list-group-item
       %strong
-        = @user.username
-    .lead
-      Email Address:
+        Username:
+      = @user.username
+    %li.list-group-item
       %strong
-        = @user.email
-    .lead
-      First Name:
+        Email Address:
+      = @user.email
+    %li.list-group-item
       %strong
-        = @user.first_name
-    .lead
-      Last Name:
+        First Name:
+      = @user.first_name
+    %li.list-group-item
       %strong
-        = @user.last_name
+        Last Name:
+      = @user.last_name
+= render 'shared/back'
