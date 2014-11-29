@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :dashboards
 
   resources :comments
-  resources :families
+  resources :families do
+    resources :wish_lists
+  end
   resources :page
   resources :permissions
   resources :relationships
@@ -11,8 +13,10 @@ Rails.application.routes.draw do
   resources :wish_lists
   resources :up_votes
   resources :upload_files
+
   resources :users do
     resources :wish_lists
+    resources :families
   end
 
   get '/signup', to: 'users#new', as: 'signup'

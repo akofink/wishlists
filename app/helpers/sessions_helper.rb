@@ -3,7 +3,7 @@ module SessionsHelper
     @current_user ||=
       User.find session[:current_user_id] if session[:current_user_id]
   end
-  
+
   def update_current_user(user)
     update_current_user_id(user.try :id)
   end

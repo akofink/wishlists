@@ -1,4 +1,5 @@
 class Family < ActiveRecord::Base
-  has_many :users
+  has_many :family_memberships
+  has_many :users, through: :family_memberships
   has_many :wish_lists
 end

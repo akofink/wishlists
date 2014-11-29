@@ -4,7 +4,7 @@ class PageController < ApplicationController
   end
 
   def welcome
-    redirect_to current_user if current_user
+    redirect_to current_user.families if current_user
   end
 
   private
