@@ -17,11 +17,8 @@ module ApplicationHelper
   end
 
   def parse_url(url)
-    unless url[/www/]
-      url = "www." + url
-    end
-    unless url[/http/]
-      url = "http://" + url
-    end
+    url = "http://" + url unless url[/^http/]
+
+    url
   end
 end
