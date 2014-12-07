@@ -8,6 +8,10 @@ class Family < ActiveRecord::Base
 
   scope :by_updated_at, ->{order :updated_at}
 
+  def active_wish_lists
+    WishList.where id: (wish_lists.map(&:user_id) & users.pluck(:id))
+  end
+
   def user_count
     users.count
   end

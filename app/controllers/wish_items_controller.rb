@@ -56,7 +56,11 @@ class WishItemsController < ApplicationController
 
   def wish_items
     @wish_items ||= @wish_list.wish_items if @wish_list
-    @wish_items ||= WishItem.by_updated_at
+    @wish_items ||= WishItem.all
+
+    @wish_items.sort_by! do |i|
+      i.title.downcase.strip
+    end
   end
 
   def wish_item_params

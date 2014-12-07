@@ -1,22 +1,30 @@
 %h1.page-header.col-md-12
-  = link_to :root, class: 'btn btn-primary' do
-    = fa_icon 'chevron-left'
-    Back
   The
   = @family.name
   Family
+.col-md-12
+  = link_to :root, class: 'btn btn-primary' do
+    = fa_icon 'chevron-left'
+    Back
+  - if @family.users.include? current_user
+    = link_to new_wish_list_path(family_id: @family.id),
+      class: 'btn btn-success' do
+      = fa_icon 'plus-circle'
+      Add Wish List
 .col-md-6
   %h3 Users
   - @family.users.each do |user|
-    = link_to user do
-      .panel.panel-default
-        .panel-heading
+    .panel.panel-default
+      .panel-heading
+        = fa_icon :user
+        = link_to user do
           = user.first_name
           = user.last_name
-          - if @family.owner == user
-            \-
-            = fa_icon :sitemap
-            Family Manager
+          = "(#{user.username})"
+        - if @family.owner == user
+          \-
+          = fa_icon :sitemap
+          Family Manager
 
 .col-md-6.container
   %h3 Wish Lists
@@ -25,9 +33,9 @@
       .panel-heading
         .col-md-10
           = fa_icon 'file-text'
-          = link_to wish_list do
-            = wish_list.title
-            Wish List
+          = wish_list.title
+          Wish List
+          %br
           = fa_icon :user
           = link_to wish_list.user do
             = wish_list.user.first_name
@@ -38,11 +46,6 @@
           class: 'btn btn-primary' do
           = fa_icon :eye
           View
-  - if @family.users.include? current_user
-    = link_to new_wish_list_path(family_id: @family.id),
-      class: 'btn btn-default' do
-      = fa_icon 'plus-circle'
-      Add Wish List
 .col-md-12
   - if @family.owner == current_user
     %h3 Danger Zone !

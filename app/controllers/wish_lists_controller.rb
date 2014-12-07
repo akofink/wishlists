@@ -61,8 +61,8 @@ class WishListsController < ApplicationController
   end
 
   def wish_lists
-    @wish_lists ||= user.wish_lists
-    @wish_lists ||= WishList.by_updated_at
+    @wish_lists ||= user.wish_lists.order(:title)
+    @wish_lists ||= WishList.order(:title)
   end
 
   def user

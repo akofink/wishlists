@@ -3,7 +3,7 @@
     = fa_icon('plus-circle')
     Add Family
 .col-md-6
-  %h2 Joined Families
+  %h2.page-header Joined Families
   - @joined.each do |family_membership|
     - family = family_membership.family
     .col-md-6
@@ -35,7 +35,7 @@
               = fa_icon :times
               Leave
 .col-md-6
-  %h2 Unjoined Families
+  %h2.page-header Unjoined Families
   - @unjoined.each do |family|
     .col-md-6
       .panel.panel-default
