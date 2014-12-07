@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :dashboards
-
   resources :comments
   resources :families do
     resources :wish_lists
