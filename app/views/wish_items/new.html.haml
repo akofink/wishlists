@@ -1,2 +1,19 @@
-%h1 WishItems#new
-%p Find me in app/views/wish_items/new.html.haml
+= link_to :back, class: 'btn btn-primary' do
+  = fa_icon 'chevron-left'
+  Back
+%h1
+  = @wish_list.title
+  Wish List
+  %h4
+    of
+    = link_to @wish_list.user do
+      = @wish_list.user.first_name
+      = @wish_list.user.last_name
+    - if @wish_list.family
+      of the
+      = link_to @wish_list.family do
+        = @wish_list.family.name
+        Family
+.col-md-8
+  %h3.col-md-12 Add an Item
+  = render 'form'

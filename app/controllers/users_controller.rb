@@ -13,9 +13,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    user
   end
 
   def update
+    if user.save
+      flash[:success] = "User account updated with username <strong>#{user.username}</strong>"
+      redirect_to user
+    else
+      render :edit
+    end
   end
 
   def show
@@ -29,8 +36,8 @@ class UsersController < ApplicationController
   private
 
   def user
-    @user ||= User.new(user_params) if params[:user]
     @user ||= User.find(params[:id]) if params[:id]
+    @user ||= User.new(user_params) if params[:user]
     @user ||= User.new
   end
 

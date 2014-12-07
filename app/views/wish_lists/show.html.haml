@@ -3,13 +3,65 @@
     %h1
       = @wish_list.title
       Wish List
-      - if @wish_list.family
-        .small
-          = @wish_list.family.name
-          Family
-  = link_to @wish_list,
-    method: :delete,
-    confirm: 'Delete this wish list?',
-    class: 'btn btn-danger' do
-    = fa_icon :times
-    Delete
+      %h4
+        of
+        = link_to @wish_list.user do
+          = @wish_list.user.first_name
+          = @wish_list.user.last_name
+        - if @wish_list.family
+          of the
+          = link_to @wish_list.family do
+            = @wish_list.family.name
+            Family
+    - @wish_list.wish_items.each do |wish_item|
+      .col-md-12
+        .panel.panel-default
+          .panel-heading
+            = link_to wish_item.url, target: '_blank' do
+              = wish_item.name
+          .panel-body.container
+            .col-md-6.btn-group
+              = wish_item.description
+            .col-md-6
+              - if wish_item.user == current_user
+                = link_to edit_wish_item_path(wish_item), class: 'btn btn-default' do
+                  = fa_icon 'pencil'
+                  Edit
+              - unless wish_item.user == current_user || wish_item.purchased_by_id
+                = link_to wish_item_path(wish_item, "wish_item[purchased_by_id]" => current_user.id), method: :patch, class: 'btn btn-default' do
+                  = fa_icon :usd
+                  Purchase
+              - if current_user == wish_item.purchased_by
+                = link_to wish_item_path(wish_item, "wish_item[purchased_by_id]" => ''),
+                  confirm: 'Mark this item as un-purchased?',
+                  method: :patch, class: 'btn btn-default' do
+                  = fa_icon :usd
+                  Un-purchase
+              - if wish_item.purchased_by && current_user != wish_item.user
+                Purchased by
+                = link_to wish_item.purchased_by do
+                  = wish_item.purchased_by.first_name
+                  = wish_item.purchased_by.last_name
+              = link_to parse_url(wish_item.url), target: '_blank', class: 'btn btn-default' do
+                = fa_icon :code
+                Link
+
+  = link_to @wish_list.family, class: 'btn btn-primary' do
+    = fa_icon 'chevron-left'
+    Back
+  - if @wish_list.user == current_user
+    = link_to new_wish_item_path(wish_item: {wish_list_id: @wish_list}), class: 'btn btn-success' do
+      = fa_icon 'plus-circle'
+      New Wish Item
+  - if @wish_list.user == current_user
+    = link_to edit_wish_list_path(@wish_list),
+      class: 'btn btn-warning' do
+      = fa_icon :times
+      Edit Wish List
+  - if @wish_list.user == current_user
+    = link_to @wish_list,
+      method: :delete,
+      confirm: 'Delete this wish list?',
+      class: 'btn btn-danger' do
+      = fa_icon :times
+      Delete Wish List

@@ -11,4 +11,17 @@ module ApplicationHelper
       :danger
     end
   end
+
+  def link_back
+    link_to :back
+  end
+
+  def parse_url(url)
+    unless url[/www/]
+      url = "www." + url
+    end
+    unless url[/http/]
+      url = "http://" + url
+    end
+  end
 end

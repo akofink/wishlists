@@ -1,0 +1,30 @@
+= form_for @user, class: 'form-horizontal' do |f|
+  .col-md-12
+    = render 'shared/form_errors', model: @user
+
+    .form-group
+      = f.text_field :username,
+        class: 'form-control',
+        placeholder: 'username'
+    .form-group
+      = f.email_field :email,
+        class: 'form-control',
+        placeholder: 'email'
+    .form-group
+      = f.text_field :first_name,
+        class: 'form-control',
+        placeholder: 'first name'
+    .form-group
+      = f.text_field :last_name,
+        class: 'form-control',
+        placeholder: 'last name'
+    .form-group
+      = f.password_field :password,
+        class: 'form-control',
+        placeholder: 'password'
+    .form-group
+      = f.password_field :password_confirmation,
+        class: 'form-control',
+        placeholder: 'password_confirmation'
+    .actions
+      = f.submit 'Save', class: 'btn btn-primary'

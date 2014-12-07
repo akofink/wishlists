@@ -20,7 +20,12 @@ class WishListsController < ApplicationController
   end
 
   def update
-    wish_list
+    if wish_list.update_attributes(wish_list_params)
+      flash[:success] = 'Wish list updated successfully'
+      redirect_to wish_list
+    else
+      redirect_back
+    end
   end
 
   def show
@@ -28,7 +33,6 @@ class WishListsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     family = wish_list.family
     if wish_list.delete
       redirect_to family
@@ -44,6 +48,7 @@ class WishListsController < ApplicationController
     params.require(:wish_list).permit(
       :id,
       :user_id,
+      :family_id,
       :created_at,
       :updated_at,
       :title,

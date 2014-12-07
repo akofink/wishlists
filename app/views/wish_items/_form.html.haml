@@ -1,0 +1,21 @@
+= form_for @wish_item, class: 'form-horizontal' do |f|
+  = f.hidden_field :wish_list_id, value: @wish_list.id
+  .form-group.col-md-12.container
+    .col-md-2
+      = f.label :name
+    .col-md-10
+      = f.text_field :name
+  .form-group.col-md-12.container
+    .col-md-2
+      = f.label :description
+    .col-md-10
+      = f.text_area :description, cols: '30'
+  .form-group.col-md-12.container
+    .col-md-2
+      = f.label :url, 'URL'
+    .col-md-10
+      = f.text_field :url
+  .form-group.col-md-12.container
+    .col-md-2
+    .col-md-10
+      = f.submit 'Save', class: 'btn btn-success'

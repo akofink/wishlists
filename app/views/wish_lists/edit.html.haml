@@ -1,2 +1,5 @@
-%h1 WishLists#edit
-%p Find me in app/views/wish_lists/edit.html.haml
+= link_to :back, class: 'btn btn-primary' do
+  = fa_icon 'chevron-left'
+  Back
+%h1 Edit Wish List
+= render 'form'
