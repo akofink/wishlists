@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @session.valid_password?
       flash[:success] = 'Logged in'
       update_current_user @session.user
-      redirect_to user_wish_lists_path(current_user)
+      redirect_to user_families_path(current_user)
     else
       render :new
     end

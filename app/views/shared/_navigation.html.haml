@@ -1,7 +1,6 @@
 %nav.navbar.navbar-inverse{role: 'naviagation'}
   .container
-    .col-md-1
-    .col-md-10
+    .col-md-12
       .navbar-header
         = button_tag '', class: 'navbar-toggle', data: { toggle: 'collapse', target: 'nav-collapse' } do
           = fa_icon 'bars'
@@ -56,4 +55,3 @@
                   = link_to :signup do
                     Sign Up
                     = fa_icon 'user', class: 'pull-right'
-    .col-md-1

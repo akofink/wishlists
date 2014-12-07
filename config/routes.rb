@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :families do
     resources :wish_lists
   end
+  resources :family_memberships
   resources :page
   resources :permissions
   resources :relationships

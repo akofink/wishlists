@@ -29,9 +29,9 @@ class UsersController < ApplicationController
   private
 
   def user
-    @user ||= (User.new(user_params) if params[:user]) ||
-      (User.find(params[:id]) if params[:id]) ||
-      (User.new)
+    @user ||= User.new(user_params) if params[:user]
+    @user ||= User.find(params[:id]) if params[:id]
+    @user ||= User.new
   end
 
   def users

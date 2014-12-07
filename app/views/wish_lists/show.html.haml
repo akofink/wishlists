@@ -1,4 +1,15 @@
-.col-md-3
-.col-md-6.page-header
-  %h1 Wish List
-.col-md-3
+.container
+  .page-header.col-md-12
+    %h1
+      = @wish_list.title
+      Wish List
+      - if @wish_list.family
+        .small
+          = @wish_list.family.name
+          Family
+  = link_to @wish_list,
+    method: :delete,
+    confirm: 'Delete this wish list?',
+    class: 'btn btn-danger' do
+    = fa_icon :times
+    Delete

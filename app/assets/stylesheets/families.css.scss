@@ -1,0 +1,14 @@
+div.blue {
+  background-color: #fcfcff;
+  &:hover {
+    background-color: #f0f0ff;
+    cursor: pointer;
+  }
+}
+div.red {
+  background-color: #fffcfc;
+  &:hover {
+    background-color: #fff0f0;
+    cursor: pointer;
+  }
+}

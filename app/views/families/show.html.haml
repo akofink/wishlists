@@ -1,0 +1,42 @@
+.col-md-1
+.col-md-10
+  %h1.page-header
+    = render 'shared/back'
+    The
+    = @family.name
+    Family
+  %h3 Users
+  - @family.users.each do |user|
+    = link_to user do
+      .panel.panel-default
+        .panel-heading
+          = user.first_name
+          = user.last_name
+          - if @family.owner == user
+            \-
+            = fa_icon :sitemap
+            Family Manager
+  %h3 Wish Lists
+  - @family.wish_lists.each do |wish_list|
+    = link_to wish_list do
+      .panel.panel-default
+        .panel-heading
+          = wish_list.title
+          Wish List, User:
+          = wish_list.user.first_name
+          = wish_list.user.last_name
+          (
+          = wish_list.user.username
+          )
+  - if @family.users.include? current_user
+    = link_to new_wish_list_path(family_id: @family.id),
+      class: 'btn btn-default' do
+      = fa_icon 'plus-circle'
+      Add Wish List
+  - if @family.owner == current_user
+    %h3 Danger Zone !
+    - if current_user == @family.owner
+      = link_to @family, method: :delete, confirm: 'Delete this family?', class: 'btn btn-danger' do
+        = fa_icon 'times'
+        Delete Family
+.col-md-1

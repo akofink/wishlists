@@ -1,0 +1,59 @@
+.col-md-12
+  = link_to new_family_path, class: 'btn btn-default btn-back' do
+    = fa_icon('plus-circle')
+    Add Family
+.col-md-6
+  %h2 Joined Families
+  - @joined.each do |family_membership|
+    - family = family_membership.family
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = link_to family, class: 'panel-title' do
+            The
+            = family.name
+            Family
+        .panel-body.container
+          .col-md-12
+            = fa_icon :users
+            Number of Users:
+            = family.users.count
+          .col-md-12
+            = fa_icon 'file-text'
+            Number of Wish Lists:
+            = family.wish_lists.count
+          .col-md-12
+            %br
+            = link_to family_membership,
+              method: :delete,
+              confirm: 'Leave this family?',
+              class: 'btn btn-danger' do
+              = fa_icon :times
+              Leave
+.col-md-6
+  %h2 Unjoined Families
+  - @unjoined.each do |family|
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = link_to family, class: 'panel-title' do
+            The
+            = family.name
+            Family
+        .panel-body.container
+          .col-md-12
+            = fa_icon :users
+            Number of Users:
+            = family.users.count
+          .col-md-12
+            = fa_icon 'file-text'
+            Number of Wish Lists:
+            = family.wish_lists.count
+          .col-md-12
+            %br
+            = link_to family_memberships_path(family_id: family.id,
+              user_id: current_user.id),
+              method: :post,
+              class: 'btn btn-primary' do
+              = fa_icon 'plus-circle'
+              Join

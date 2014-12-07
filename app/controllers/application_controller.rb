@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     request.env['HTTP_REFERER']
   end
   helper_method :last_page
+
+  def redirect_back
+    redirect_to last_page
+  end
 end
