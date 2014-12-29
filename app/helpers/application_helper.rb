@@ -13,7 +13,10 @@ module ApplicationHelper
   end
 
   def link_back
-    link_to :back
+    link_to :back, class: 'btn btn-primary' do
+      fa_icon('chevron-left') +
+        ' Back'
+    end
   end
 
   def parse_url(url)

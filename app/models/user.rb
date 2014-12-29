@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   },
     format: {
     with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*(_|[^\w]|\d)).+\z/,
-    message: 'must meet the security requirements'
+    message: 'must contain one uppercase letter, one lowercase letter, and a symbol or number'
   }
 
   def self.with_username(username)

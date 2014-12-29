@@ -8,4 +8,4 @@
     = f.label :family_id
     = f.select :family_id, current_user.families.pluck(:name, :id)
   .form-group
-    = f.submit "Save", class: 'btn btn-default'
+    = f.submit "Save", class: 'btn btn-primary'

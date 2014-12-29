@@ -4,3 +4,18 @@
 #= require bootstrap-sprockets
 #= require turbolinks
 #= require_tree .
+
+$(document).ready ->
+  Global =
+    show_item: (target)->
+      $(target).hide()
+      $(target).parent('div').find('.to-show').show()
+    hide_item: (target)->
+      $(target).parent('.to-show').hide()
+      $(target).parent('.to-show').parent('div').find('.btn-show').show()
+
+  $('.btn-show').click ->
+    Global.show_item this
+  $('.btn-hide').click ->
+    Global.hide_item this
+

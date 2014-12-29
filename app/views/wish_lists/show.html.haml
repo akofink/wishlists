@@ -1,4 +1,4 @@
-.container
+.container.col-md-10.col-md-offset-1
   .col-md-12.page-header
     %h1
       = @wish_list.title
@@ -39,31 +39,37 @@
     - @wish_list.wish_items.by_name.each do |wish_item|
       .panel.panel-default
         .panel-heading.panel-title
-          = wish_item.name
-        .panel-body.container
-          .col-md-6.btn-group
-            = wish_item.description
-          .col-md-6
+          .container
+            = wish_item.name
             - if wish_item.url.present?
-              = link_to parse_url(wish_item.url), target: '_blank', class: 'btn btn-default' do
+              = link_to parse_url(wish_item.url), target: '_blank', class: 'btn btn-primary' do
                 = fa_icon :code
                 Link
             - if wish_item.user == current_user
-              = link_to edit_wish_item_path(wish_item), class: 'btn btn-default' do
+              = link_to edit_wish_item_path(wish_item), class: 'btn btn-primary' do
                 = fa_icon 'pencil'
                 Edit
-            - unless wish_item.user == current_user || wish_item.purchased_by_id
-              = link_to wish_item_path(wish_item, "wish_item[purchased_by_id]" => current_user.id), method: :patch, class: 'btn btn-default' do
-                = fa_icon :usd
-                Purchase
-            - if current_user == wish_item.purchased_by
-              = link_to wish_item_path(wish_item, "wish_item[purchased_by_id]" => ''),
-                confirm: 'Mark this item as un-purchased?',
-                method: :patch, class: 'btn btn-default' do
-                = fa_icon :usd
-                Un-purchase
-            - if wish_item.purchased_by && current_user != wish_item.user
-              Purchased by
-              = link_to wish_item.purchased_by do
-                = wish_item.purchased_by.first_name
-                = wish_item.purchased_by.last_name
+            = button_tag class: 'btn btn-primary btn-show' do
+              = fa_icon 'eye'
+              Show Status
+            %span.to-show
+              = button_tag class: 'btn btn-primary btn-hide' do
+                = fa_icon 'eye-slash'
+                Hide Status
+              - unless wish_item.user == current_user || wish_item.purchased_by_id
+                = link_to wish_item_path(wish_item, "wish_item[purchased_by_id]" => current_user.id), method: :patch, class: 'btn btn-primary' do
+                  = fa_icon :usd
+                  Purchase
+              - if current_user == wish_item.purchased_by
+                = link_to wish_item_path(wish_item, "wish_item[purchased_by_id]" => ''),
+                  confirm: 'Mark this item as un-purchased?',
+                  method: :patch, class: 'btn btn-primary' do
+                  = fa_icon :usd
+                  Un-purchase
+              - if wish_item.purchased_by && current_user != wish_item.user
+                Purchased by
+                = link_to wish_item.purchased_by do
+                  = wish_item.purchased_by.first_name
+                  = wish_item.purchased_by.last_name
+        .panel-body.container
+          = wish_item.description
