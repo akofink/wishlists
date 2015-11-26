@@ -5,7 +5,7 @@
 #= require turbolinks
 #= require_tree .
 
-$(document).ready ->
+$(document).on 'ready page:load', ->
   Global =
     show_item: (target)->
       $(target).hide()
@@ -14,8 +14,8 @@ $(document).ready ->
       $(target).parent('.to-show').hide()
       $(target).parent('.to-show').parent('div').find('.btn-show').show()
 
-  $('.btn-show').click ->
+  $('.btn-show').on 'click', ->
     Global.show_item this
-  $('.btn-hide').click ->
+  $('.btn-hide').on 'click', ->
     Global.hide_item this
 
