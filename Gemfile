@@ -1,4 +1,4 @@
-ruby '2.1.0'
+ruby '2.1.7'
 
 source 'https://rubygems.org'
 
@@ -28,7 +28,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate'
 
 group :development do
-  gem 'debugger'
   gem 'spring'
   gem 'thin'
   gem 'pry-rails'
