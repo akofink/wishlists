@@ -1,0 +1,16 @@
+version: '3'
+services:
+  rails:
+    build: .
+    ports:
+     - "3000:3000"
+    volumes:
+      - .:/wishlists
+    depends_on:
+      - postgres
+    command:
+      bundle exec rails s -b 0.0.0.0
+  postgres:
+    image: "postgres"
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
