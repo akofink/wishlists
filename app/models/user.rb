@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
       message: 'must be the correct format'
     }
 
-  validates :password, unless: 'password.blank?',
+  validates :password, unless: -> { password.blank? },
     length: {
     minimum: 6
   },

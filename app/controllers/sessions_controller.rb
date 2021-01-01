@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :set_up_session
+  before_action :set_up_session
 
   def new
   end

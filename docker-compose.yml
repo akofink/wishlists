@@ -1,16 +1,16 @@
-version: '3'
 services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - /var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
   rails:
     build: .
     ports:
-     - "3000:3000"
+      - '3000:3000'
     volumes:
-      - .:/wishlists
+      - .:/usr/src/app
     depends_on:
-      - postgres
-    command:
-      bundle exec rails s -b 0.0.0.0
-  postgres:
-    image: "postgres"
-    volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - db

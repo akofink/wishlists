@@ -22,7 +22,7 @@ class WishItemsController < ApplicationController
   end
 
   def update
-    if wish_item.update_attributes(wish_item_params)
+    if wish_item.update(wish_item_params)
       flash[:success] = 'Wish item updated successfully'
       redirect_to wish_list
     else

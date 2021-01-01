@@ -1,11 +1,13 @@
-FROM ruby:2.4-alpine
+# podman build -t akwishlists .
 
-WORKDIR /wishlists
-ADD . .
+from ruby
 
-RUN apk add --no-cache build-base gcc git ruby-dev nodejs tzdata\
-      linux-headers postgresql-dev libevent libxml2-dev curl-dev \
-      imagemagick6-dev imagemagick6-c++ \
-      ruby-nokogiri
+WORKDIR /usr/src/app
 
-RUN bundle update -j4
+COPY Gemfile Gemfile.lock ./
+
+RUN bundle install
+
+COPY . .
+
+ENTRYPOINT ["./entrypoint.sh"]

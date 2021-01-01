@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if user.update_attributes(user_params)
+    if user.update(user_params)
       flash[:success] = "User account updated with username <strong>#{user.username}</strong>"
       redirect_to user
     else

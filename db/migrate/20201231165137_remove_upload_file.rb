@@ -1,11 +1,9 @@
-class CreateComments < ActiveRecord::Migration[4.2]
+class RemoveUploadFile < ActiveRecord::Migration[6.1]
   def change
-    create_table :comments do |t|
-      t.text :body
+    drop_table :upload_files do |t|
       t.integer :user_id
       t.integer :model_id
       t.string :model_type
-      t.boolean :edited
 
       t.timestamps
     end
