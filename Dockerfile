@@ -1,6 +1,6 @@
 # podman build -t akwishlists .
 
-from ruby
+from ruby:2
 
 WORKDIR /usr/src/app
 
